@@ -37,5 +37,29 @@ docker start test-postgres
 
 ```
 npm install
-npm run demo
+npm start
 ```
+
+## Endpoints
+
+### /users
+
+- GET  
+  Retrieves all users.
+
+- POST
+
+  Creates a new user.
+
+  Sample request body:
+
+  ```json
+  {
+    "firstName": "Bob",
+    "lastName": "Roberts"
+  }
+  ```
+
+## TODO
+
+- Add Postman / Newman tests.
