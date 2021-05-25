@@ -19,17 +19,18 @@ const app = require('./app');
 async function start() {
   try {
     // Test connection
+    logger.log('Testing connection...');
     await db.authenticate();
     logger.log('Connection has been established successfully.');
 
     // Sync the models
+    logger.log('Syncing models...');
     await db.sync();
-    logger.log("Synced successfully...");
+    logger.log('Synced successfully...');
 
     app.listen(3000, () => {
-        logger.log("Server is listening on port 3000!");
+      logger.log('Server is listening on port 3000.');
     });
-
   } catch (err) {
     logger.log(`An error occurred: ${err.message}`);
   }
