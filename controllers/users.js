@@ -19,3 +19,24 @@ exports.createUser = async (req, res, next) => {
   const user = await usersService.createUser({ firstName, lastName });
   res.status(201).json({ user });
 };
+
+/**
+ * Update a user.
+ */
+exports.updateUser = async (req, res, next) => {
+  const { id } = req.params;
+  const { firstName, lastName } = req.body;
+
+  const wasUpdated = await usersService.updateUser({ id, firstName, lastName });
+  res.status(200).json({ wasUpdated });
+};
+
+/**
+ * Delete a user.
+ */
+exports.deleteUser = async (req, res, next) => {
+  const { id } = req.params;
+
+  const wasDeleted = await usersService.deleteUser({ id });
+  res.status(200).json({ wasDeleted });
+};
