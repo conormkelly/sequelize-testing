@@ -1,5 +1,5 @@
-version: "3.9"
-   
+version: '3'
+
 services:
   db:
     image: postgres
@@ -8,4 +8,16 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=secret
     ports:
-      - "5432:5432"
+      - 5432:5432
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      POSTGRES_CONNECTION_STRING: postgres://postgres:secret@db/postgres
+    ports:
+      - 3000:3000
+    links:
+      - db
+    volumes:
+      - ./:/usr/src/app/

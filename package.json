@@ -1,13 +1,14 @@
 {
-  "name": "sequelize-testing",
+  "name": "postgres-sequelize",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "db:start": "docker-compose up -d",
-    "db:stop": "docker-compose down",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "develop": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down"
   },
   "keywords": [],
   "author": "",
