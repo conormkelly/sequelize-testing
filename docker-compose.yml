@@ -15,6 +15,7 @@ services:
       dockerfile: Dockerfile.dev
     environment:
       POSTGRES_CONNECTION_STRING: postgres://postgres:secret@db/postgres
+      NODE_ENV: development
     ports:
       - 3000:3000
     links:

@@ -23,10 +23,12 @@ async function start() {
     await db.authenticate();
     logger.log('Connection has been established successfully.');
 
-    // Sync the models
-    logger.log('Syncing models...');
-    await db.sync();
-    logger.log('Synced successfully...');
+    if (process.env.NODE_ENV === 'development') {
+      // Sync the models
+      logger.log('Syncing models...');
+      await db.sync();
+      logger.log('Synced successfully...');
+    }
 
     app.listen(3000, () => {
       logger.log('Server is listening on port 3000.');
